@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>InhaleHero</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== GAME / HOME ===== -->
+  <div class="screen active" id="gameScreen">
+    <div class="game-header">
+      <h1 id="levelTitle"></h1>
+      <div class="level-info" id="levelInfo">第 1 关 · 0 步</div>
+    </div>
+    <div class="hint-bar" id="hintBar" style="display:none">
+      <span id="hintText"></span>
+    </div>
+    <div class="switch-status" id="switchStatus" style="display:none"></div>
+    <div class="game-center">
+        <div class="game-wrapper">
+          <canvas id="game"></canvas>
+          <div class="victory-overlay" id="victoryOverlay">
+            <h2>✦ 通关 ✦</h2>
+            <p id="victoryText">所有角色都站到了终点！</p>
+            <button class="btn btn-gold" id="nextLevelBtn">下一关 →</button>
+          </div>
+          <div class="victory-overlay" id="deathOverlay">
+            <h2 style="color:#E74C3C">☠ 失败 ☠</h2>
+            <p style="color:#FF6B6B" id="deathReason">能量门压死了角色！</p>
+            <button class="btn" id="deathResetBtn" style="margin-top:10px">R 重置</button>
+          </div>
+        </div>
+      </div>
+    <div class="game-layout">
+      <div class="game-left">
+        <div class="dpad">
+          <button class="dpad-btn empty"></button>
+          <button class="dpad-btn d-up">▲</button>
+          <button class="dpad-btn empty"></button>
+          <button class="dpad-btn d-left">◀</button>
+          <button class="dpad-btn empty"></button>
+          <button class="dpad-btn d-right">▶</button>
+          <button class="dpad-btn empty"></button>
+          <button class="dpad-btn d-down">▼</button>
+          <button class="dpad-btn empty"></button>
+        </div>
+      </div>
+      <div class="game-right">
+        <div class="char-selector">
+          <button class="char-btn warrior" data-char="0"><span class="ci">⚔</span>战士</button>
+          <button class="char-btn thief" data-char="1"><span class="ci">🗝</span>盗贼</button>
+          <button class="char-btn mage" data-char="2"><span class="ci">✦</span>法师</button>
+          <button class="char-btn priest" data-char="3"><span class="ci">✝</span>牧师</button>
+        </div>
+        <div style="flex:1;min-height:8px"></div>
+        <button class="btn" id="switchBtn">Q 切换角色</button>
+        <button class="btn" id="resetBtn">R 重置关卡</button>
+      </div>
+    </div>
+
+    <!-- Home nav: Z → level select, C → editor -->
+    <div class="home-nav">
+      <button class="btn home-nav-btn" id="toSelectorBtn"><kbd>Z</kbd> 关卡选择</button>
+      <button class="btn home-nav-btn" id="toEditorBtn"><kbd>C</kbd> 关卡编辑器</button>
+    </div>
+  </div>
+
+  <!-- ===== LEVEL SELECT ===== -->
+  <div class="screen" id="selectScreen">
+    <div class="sel-header">
+      <h1>📋 关卡选择</h1>
+      <button class="btn" id="backFromSelect"><kbd>Esc</kbd> 返回</button>
+    </div>
+    <div class="lvl-grid" id="lvlGrid"></div>
+  </div>
+
+  <!-- ===== EDITOR ===== -->
+  <div class="screen" id="editorScreen">
+    <div class="edit-header">
+      <h1>✏ 关卡编辑器</h1>
+      <button class="btn" id="backFromEditor"><kbd>Esc</kbd> 返回</button>
+    </div>
+
+    <!-- Row 1: Terrain -->
+    <div class="edit-tools">
+      <span class="tool-label">地形:</span>
+      <button class="tile-btn active" data-tile="wall" data-key="1"><kbd>1</kbd>🧱</button>
+      <button class="tile-btn" data-tile="empty" data-key="2"><kbd>2</kbd>·</button>
+      <button class="tile-btn" data-tile="water" data-key="3"><kbd>3</kbd>🌊</button>
+      <button class="tile-btn" data-tile="box" data-key="4"><kbd>4</kbd>📦</button>
+      <button class="tile-btn" data-tile="target" data-key="5"><kbd>5</kbd>🎯</button>
+      <span class="sep"></span>
+      <span class="tool-label">角色:</span>
+      <button class="tile-btn" data-tile="char0" data-key="6"><kbd>6</kbd>⚔</button>
+      <button class="tile-btn" data-tile="char1" data-key="7"><kbd>7</kbd>🗝</button>
+      <button class="tile-btn" data-tile="char2" data-key="8"><kbd>8</kbd>✦</button>
+      <button class="tile-btn" data-tile="char3" data-key="9"><kbd>9</kbd>✝</button>
+    </div>
+
+    <!-- Row 2: Interactive -->
+    <div class="edit-tools">
+      <span class="tool-label">机关:</span>
+      <button class="tile-btn tb-door-purple" data-tile="doorP" data-key="q"><kbd>Q</kbd>🟣</button>
+      <button class="tile-btn tb-door-yellow" data-tile="doorY" data-key="w"><kbd>W</kbd>🟡</button>
+      <button class="tile-btn tb-switch-purple" data-tile="swP" data-key="e"><kbd>E</kbd>⚪P</button>
+      <button class="tile-btn tb-switch-yellow" data-tile="swY" data-key="r"><kbd>R</kbd>⚪Y</button>
+      <button class="tile-btn" data-tile="goblin" data-key="g" style="color:#2d8a4e"><kbd>G</kbd>👺</button>
+      <button class="tile-btn" data-tile="monsterGate" data-key="m" style="color:#E91E63"><kbd>M</kbd>🚧</button>
+      <span class="sep"></span>
+      <span class="tool-label">火龙:</span>
+      <button class="tile-btn" data-tile="dragonUp" data-key="z" style="color:#E74C3C"><kbd>Z</kbd>↑</button>
+      <button class="tile-btn" data-tile="dragonRight" data-key="x" style="color:#E74C3C"><kbd>X</kbd>→</button>
+      <button class="tile-btn" data-tile="dragonDown" data-key="c" style="color:#E74C3C"><kbd>C</kbd>↓</button>
+      <button class="tile-btn" data-tile="dragonLeft" data-key="v" style="color:#E74C3C"><kbd>V</kbd>←</button>
+    </div>
+
+    <!-- Row 3: Actions -->
+    <div class="edit-tools">
+      <span class="tool-label">操作:</span>
+      <button class="btn" id="editorTest"><kbd>T</kbd>测试</button>
+      <button class="btn" id="editorSave"><kbd>S</kbd>保存</button>
+      <button class="btn" id="editorClear"><kbd>Del</kbd>清空</button>
+      <span class="sep"></span>
+      <span class="tool-label">尺寸:</span>
+      <button class="btn btn-sm" id="sizeDec"><kbd>-</kbd></button>
+      <span id="sizeDisplay" class="size-display">10×10</span>
+      <button class="btn btn-sm" id="sizeInc"><kbd>+</kbd></button>
+      <span class="sep"></span>
+      <button class="btn" id="editorExport"><kbd>O</kbd>导出</button>
+      <button class="btn" id="editorImport"><kbd>I</kbd>导入</button>
+    </div>
+
+    <div class="edit-canvas-wrap">
+      <canvas id="editorCanvas"></canvas>
+    </div>
+    <div class="editor-footer">
+      <span class="editor-info" id="editorInfo">箱子: 0 | 终点: 0 | 角色: 0 | 门: 0</span>
+    </div>
+  </div>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+</div>
+
+<script src="js/constants.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/entity.js"></script>
+<script src="js/world.js"></script>
+<script src="js/game.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

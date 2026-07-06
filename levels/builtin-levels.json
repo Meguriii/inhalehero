@@ -1,0 +1,946 @@
+[
+  {
+    "id": "Warrior 1",
+    "name": "战士其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "...W...X....",
+      ".0.W...W.T..",
+      "...X...W....",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Warrior 2",
+    "name": "战士其二",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "...W...W...",
+      ".0.XX....XX",
+      "...W...W...",
+      "WWWWWWWWWXW",
+      "...W...W...",
+      ".TX..XXXX..",
+      "...W...W...",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Warrior 3",
+    "name": "战士其三",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "...W...W....",
+      "0p...X.W.T..",
+      "...W...P....",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Warrior 4",
+    "name": "战士其四",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "W.....WTW",
+      "W.0X..WPW",
+      "W.XX....W",
+      "W...W...W",
+      "WWp.p.p.W",
+      "W.......W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Thief 1",
+    "name": "盗贼其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "...W...X....",
+      ".1.W...W.T..",
+      "...X...W....",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Thief 2",
+    "name": "盗贼其二",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "...WX..W...",
+      ".1.X...W.X.",
+      "...W..X....",
+      "WWWWWWWWW.W",
+      "..XX...W...",
+      ".T.W...W.p.",
+      "...W...P.X.",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Thief 3",
+    "name": "盗贼其三",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "~~~~~~~~~~~~~~~~~",
+      "WWWWWWWWWX..WWWWW",
+      "...W......1.P...W",
+      "...W....W...W.T.W",
+      "W..W....WWWWW...W",
+      "W..WWWW.W..WWWWPW",
+      "W.......W...p....",
+      "W..WW...W...WW...",
+      "WWWWW...WW.WWWWWW",
+      "~~WWW.WWW..WW...W",
+      "~~W.............W",
+      "~~W...WWWWWWWWWWW",
+      "~~~~~~~~~~~~~~~~~"
+    ]
+  },
+  {
+    "id": "Thief 4",
+    "name": "盗贼其四",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "W.....WTW",
+      "W.1X..WPW",
+      "W.XX....W",
+      "W.W...W.W",
+      "W.p.p.p.W",
+      "W...W...W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Mage 1",
+    "name": "法师其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "...W...X....",
+      ".2.X...W.T..",
+      "...W...W....",
+      "~~~~~~~~~~~",
+      "~~~~~~~~~~~",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Mage 2",
+    "name": "法师其二",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      ".......W...",
+      "2X.W.......",
+      ".......W...",
+      "WWWWW.WWW.W",
+      "...W...W...",
+      ".T.P.......",
+      "...W...W..p",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Mage 3",
+    "name": "法师其三",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "W.....2.W...",
+      "W.X.X.X.P.TX",
+      "W.......WWWW",
+      "W.X.X.X.W~~~",
+      "W.......W~~~",
+      "W.p.X.X.W~~~",
+      "W.......W~~~",
+      "WWWWWWWWW~~~"
+    ]
+  },
+  {
+    "id": "Mage 4",
+    "name": "法师其四",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "W.....WTW",
+      "W.2X..WPW",
+      "W.XX....W",
+      "W...W...W",
+      "W.p.p.p.W",
+      "W...W...W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Mage & Warrior 1",
+    "name": "法师与战士其一",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "W...W...W",
+      "WXW...p.W",
+      "WTW0W...W",
+      "WWWWWWPWW",
+      "WXW2W...W",
+      "WTW...p.W",
+      "W...W...W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Warrior & Thief 1",
+    "name": "战士与盗贼其一",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "W...WWWT..WW",
+      "W.0.X.WWWPWW",
+      "W...W.W.p..W",
+      "WWWWW..X...W",
+      "W...W.W.p..W",
+      "W.1...WWWPWW",
+      "W...WWWT..WW",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Thief & Mage 1",
+    "name": "盗贼与法师其一",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "WWWWW2...XWWW",
+      "WWWWWWW.WWWWW",
+      "WT.W........W",
+      "W..P1p....WpW",
+      "WT.W........W",
+      "WWWWWW..WWWWW",
+      "~~~~~~~.X~~~~",
+      "~~~~~~~~~~~~~"
+    ]
+  },
+  {
+    "id": "Mage & Warrior 2",
+    "name": "法师与战士其二",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "~~~~~~~~~~~~",
+      "~~~~~~~~~~~~",
+      "...WW0WW.TWW",
+      ".p.....P..XW",
+      "...WW2WW.TWW",
+      "~~~~~~~~~~~~",
+      "~~~~~~~~~~~~",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 1",
+    "name": "三重奏其一",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "WX..TT...XW",
+      "W.WWWWWWW.W",
+      "WPWT.W..WPW",
+      "W.W.p.p.WXW",
+      "W1W2.W.XW0W",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 2",
+    "name": "三重奏其二",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "WX......W",
+      "WWWWWWW.W",
+      "W012.PW.W",
+      "W..WWTW.W",
+      "W..WTTW.W",
+      "WW.WWWW.W",
+      "W.......W",
+      "WWpWWWW.W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 3",
+    "name": "三重奏其三",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W...WT.TW...W",
+      "W.X.W102W.T.W",
+      "W...W...W...W",
+      "WWPWWW.WWWPWW",
+      "W...W...W...W",
+      "W.p...p...p.W",
+      "W...W...W...W",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 4",
+    "name": "三重奏其四",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWW",
+      "WWXWXWW",
+      "W..2..W",
+      "W.TTT.W",
+      "W.....W",
+      "~~~~~~~",
+      "W1WWW0W",
+      "WWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 5",
+    "name": "三重奏其五",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWWWW",
+      "W0..pWX1pW.p.2W",
+      "W..X.Wp..W.X..W",
+      "Wp...W...W...pW",
+      "WWWPWWWPWWWPWWW",
+      "~~W.........W~~",
+      "~~W...TTT...W~~",
+      "~~W........XW~~",
+      "~~WWWW..WWWWW~~",
+      "~~~~~W.XXW~~~~~",
+      "~~~~~WWWWW~~~~~"
+    ]
+  },
+  {
+    "id": "Goblin 1",
+    "name": "哥布林其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "W........GW",
+      "W.........W",
+      "W0..G..W.TW",
+      "W.........W",
+      "W........GW",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Goblin 2",
+    "name": "哥布林其二",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W0.G.......GW",
+      "W...G.......W",
+      "W.......G...W",
+      "WG..........W",
+      "W....G......W",
+      "WG.......G..W",
+      "W.G.....G.T.W",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Goblin 3",
+    "name": "哥布林其三",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW~~~~",
+      "WT.G......WWW~~",
+      "W.P.........WWW",
+      "W.....G.G.....W",
+      "WG............W",
+      "W.............W",
+      "W..G.......G..W",
+      "W......G......W",
+      "W..p.....1X...W",
+      "W.............W",
+      "W...G......G..W",
+      "W...........WWW",
+      "W.........WWW~~",
+      "WWWWWWWWWWW~~~~"
+    ]
+  },
+  {
+    "id": "Goblin 4",
+    "name": "哥布林其四",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWWW",
+      "W2.WGWWWGWWWWW",
+      "W...XXXXX...GW",
+      "W...XXXXX....W",
+      "WWWWWWGWWWG..W",
+      "WWWWWGWWGWW..W",
+      "WG..XXXXX....W",
+      "W...XX.XX....W",
+      "W..GWWGWWWWWWW",
+      "W..WWWWWWWWWWW",
+      "W....G.G....TW",
+      "W...G.G..G...W",
+      "WWWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Fire Dragon 1",
+    "name": "火龙其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "WT.........W",
+      "W..........W",
+      "WR.........W",
+      "W..........W",
+      "W..........W",
+      "W.....WWGWWW",
+      "W.....W.X..W",
+      "W..FWWW...0W",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Fire Dragon 2",
+    "name": "火龙其二",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W.1..WWWWWWWW",
+      "W...........W",
+      "W.T.......L.W",
+      "W...........W",
+      "W..R........W",
+      "W...........W",
+      "W.........L.W",
+      "............W",
+      "...WWWWWWW..W",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Fire Dragon 3",
+    "name": "火龙其三",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "W1.DW...W",
+      "W.X.....W",
+      "W...WR..W",
+      "WWWWWW..W",
+      "WWDD....W",
+      "WT......W",
+      "WW......W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Fire Dragon 4",
+    "name": "火龙其四",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWW~~~~~~~~",
+      "WT.W~~~~~~~~",
+      "W..WWWWWWW~~",
+      "W..D.....W~~",
+      "W........W~~",
+      "WF.......W~~",
+      "WWWWWWWWDWWW",
+      "W..........W",
+      "W1..W...X..W",
+      "WWW....F...W",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 6",
+    "name": "三重奏其六",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWDWWW",
+      "W0.......TW",
+      "W1......TXW",
+      "W2.......TW",
+      "WWWFWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 1",
+    "name": "怪物门其一",
+    "hint": "有怪物存活时，能量门激活",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W.......WWWWW",
+      "W.......W...W",
+      "W.......W.T.W",
+      "W..W....W...W",
+      "W..WW...WWMWW",
+      "W0.W....G..WW",
+      "W..W.....XX.W",
+      "WG.W........W",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 2",
+    "name": "怪物门其二",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W.......W...W",
+      "W.......W.T.W",
+      "W.0X.G..W...W",
+      "W....X..WWMWW",
+      "WG.........WW",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 3",
+    "name": "怪物门其三",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWWW",
+      "W........WWWWW",
+      "W........WWWWW",
+      "W.G......W...W",
+      "W..0.G.X.M.T.W",
+      "W........W...W",
+      "W....X...WWWWW",
+      "WG.......WWWWW",
+      "WWWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 4",
+    "name": "怪物门其四",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "WL...RWWWWW",
+      "W.....W...W",
+      "W.1...M.T.W",
+      "W...X.W...W",
+      "W.....WWWWW",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 5",
+    "name": "怪物门其五",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWWW",
+      "W........WWWWW",
+      "W..X.....WWWWW",
+      "WR.......W...W",
+      "W........M.T.W",
+      "W.....G..W...W",
+      "W..0X....WWWWW",
+      "W........WWWWW",
+      "WWWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 6",
+    "name": "怪物门其六",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W.......WWWWW",
+      "W.p...P.WWWWW",
+      "W...X...W...W",
+      "W.2..G..M.T.W",
+      "W...X...W...W",
+      "W.p...p.WWWWW",
+      "W.......WWWWW",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 7",
+    "name": "怪物门其七",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWWW",
+      "W....0...WWWWW",
+      "WR.......WWWWW",
+      "W....G...W...W",
+      "W...G.G..M.T.W",
+      "W..X.....W...W",
+      "W......X.WWWWW",
+      "W........WWWWW",
+      "WWWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Monster Gate 8",
+    "name": "怪物门其八",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW~~~~~",
+      "W.p.......W~~~~~",
+      "W...G.....W~~~~~",
+      "W.........W~~~~~",
+      "WG........WWWWWW",
+      "W........G.G.GPL",
+      "WPPPPW....WWWWWW",
+      "W....W....W~~~~~",
+      "W..T.W.2..W~~~~~",
+      "WWWWWWWWWWW~~~~~"
+    ],
+    "overlays": [
+      {"char": "G", "r": 1, "c": 2}
+    ]
+  },
+  {
+    "id": "Warrior & Thief 2",
+    "name": "战士与盗贼其二",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "WTT..Wy..XWW",
+      "WWWWYW....WW",
+      "WWWW.W.10..W",
+      "WWWWPW...WLW",
+      "Wp.G.......W",
+      "WWWWWWWWWWWW"
+    ],
+    "overlays": [
+      {"char": "G", "r": 5, "c": 1}
+    ]
+  },
+  {
+    "id": "Priest 1",
+    "name": "牧师其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "W...WGWGWGW",
+      "W.3.......W",
+      "WX.XGWGWG.W",
+      "W.XTXWWWX.W",
+      "WR........W",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Mage 1",
+    "name": "牧师与法师其一",
+    "hint": "",
+    "difficulty": 1,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "W2WWWWWWWTW",
+      "W.WGWGWGW.W",
+      "W.........W",
+      "W.WWGWGWW.W",
+      "W3WWWWWWWTW",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Warrior 1",
+    "name": "牧师与战士其一",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "W0.3W.GWGWWW",
+      "W...W......W",
+      "WW.WW.WWG..W",
+      "WG....GWT.TW",
+      "W...W.WW.G.W",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Warrior 2",
+    "name": "牧师与战士其二",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "W.0...WTW",
+      "W3...XWTW",
+      "W...G.WPW",
+      "W..G....W",
+      "W..ppp..W",
+      "W.......W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Thief 1",
+    "name": "牧师与盗贼其一",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWW",
+      "WWW..1..W3WW",
+      "WWW.X.p...LW",
+      "W.P.......LW",
+      "WTW.X.p...LW",
+      "W.W.....WTWW",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Thief 2",
+    "name": "牧师与盗贼其二",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "W.1.WWGWGWW",
+      "W.........W",
+      "W.3.WGWG..W",
+      "WWWWWWWW.WW",
+      "WT..WWWW.GW",
+      "WTW.GWWW.WW",
+      "WWW.WWWG..W",
+      "WG..GW....W",
+      "WW.......GW",
+      "WWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Mage 2",
+    "name": "牧师与法师其二",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWW",
+      "W3XXXLWW",
+      "WXXXXXWW",
+      "WXXXX2WW",
+      "WGXXXMTW",
+      "WXXXXMTW",
+      "WWWWWWWW"
+    ]
+  },
+  {
+   "id": "Priest & Mage 3",
+    "name": "牧师与法师其三",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWW",
+      "WG...GWWWW",
+      "W.....W.TW",
+      "W.2.3.M..W",
+      "W.....W.TW",
+      "WG...GWWWW",
+      "WWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Priest & Mage 4",
+    "name": "牧师与法师其四",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWW",
+      "W2...GWWWW",
+      "W.....W.TW",
+      "W..3..M..W",
+      "W.....W.TW",
+      "WG...GWWWW",
+      "WWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 7",
+    "name": "三重奏其七",
+    "hint": "",
+    "difficulty": 3,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWW",
+      "WW.3WWWWWGW",
+      "WG....G.1.W",
+      "WW.2WWWWW.W",
+      "WWWWWGWWW.W",
+      "W.T..X...GW",
+      "WT.TWGWWWWW",
+      "WWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Trio 8",
+    "name": "三重奏其八",
+    "hint": "",
+    "difficulty": 2,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWW",
+      "WWGWGWGWW",
+      "W1P.P.P.W",
+      "WWpWpWp.W",
+      "W.......W",
+      "W.2.X.3.W",
+      "W.T.T.T.W",
+      "WWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Quartet 1",
+    "name": "四人帮其一",
+    "hint": "",
+    "difficulty": 4,
+    "author": "builtin",
+    "map": [
+      "WWWWWWWWWWWWW",
+      "W...W...W...W",
+      "W.0.WT.TW.1.W",
+      "W...W...W...W",
+      "WW.WWWMWWW.WW",
+      "WRXL.....RXLW",
+      "W.W.......W.W",
+      "WRXL.....RXLW",
+      "WW.WWWMWWW.WW",
+      "W...W...W...W",
+      "W.2.WT.TW.3.W",
+      "W...W...W...W",
+      "WWWWWWWWWWWWW"
+    ]
+  },
+  {
+    "id": "Last",
+    "name": "最后一关",
+    "hint": "",
+    "difficulty": 4,
+    "author": "builtin",
+    "map": [
+      "~~~~WWWWWWWWW~~~~",
+      "~~~~.G..G..G.~~~~",
+      "~~~~.........~~~~",
+      "~~~~~~~~~~~~~~~~~",
+      "W..~.........~..W",
+      "W..~.1...0...~..W",
+      "WG.~.........~.GW",
+      "W..~.......L.~..W",
+      "WG.~.D.......~.GW",
+      "W..~...F.....~..W",
+      "WG.~.........~.GW",
+      "W..~...R.....~..W",
+      "WG.~.........~..W",
+      "~~~~~~~~M~~~~~~~~",
+      "~~~...........~~~",
+      "~~~.G.GTTG.G..~~~",
+      "~~~WWWWWWWWWWW~~~"
+    ]
+  }
+]
