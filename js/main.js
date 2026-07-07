@@ -64,7 +64,7 @@ document.getElementById('switchBtn').addEventListener('click', () => {
   if (world && world.characters.length > 0) {
     world.activeCharIdx = (world.activeCharIdx + 1) % world.characters.length;
     updateCharButtons();
-    renderGame();
+    render();
   }
 });
 document.getElementById('resetBtn').addEventListener('click', () => loadLevel(currentLevelIdx));
@@ -163,7 +163,7 @@ document.getElementById('editorTest').addEventListener('click', () => {
       updateCharButtons();
       updateSwitchStatusDisplay();
       updateUI();
-      renderGame();
+      render();
     }
     const hintBar = document.getElementById('hintBar');
     const hintText = document.getElementById('hintText');
@@ -243,15 +243,6 @@ document.getElementById('editorImport').addEventListener('click', () => {
   }, { once: true });
 });
 
-// ============================================================
-//  全局渲染函数（供 world.js 调用）
-// ============================================================
-function renderGame() {
-  if (world) {
-    world.render();
-    world.renderParticles();
-  }
-}
 
 // ============================================================
 //  Keyboard
@@ -315,7 +306,7 @@ document.addEventListener('keydown', e => {
     if (world && world.characters.length > 0) {
       world.activeCharIdx = (world.activeCharIdx + 1) % world.characters.length;
       updateCharButtons();
-      renderGame();
+      render();
     }
     return;
   }
@@ -368,7 +359,7 @@ async function init() {
       world.updateParticles();
       world.updateMonsterGates();
     }
-    renderGame();
+    render();
     requestAnimationFrame(loop);
   })();
 }

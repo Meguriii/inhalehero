@@ -4,7 +4,7 @@
 const editCanvas = document.getElementById('editorCanvas');
 const ectx = editCanvas.getContext('2d');
 let editGrid = [], editRows = 10, editCols = 10, editTs = 40;
-let currentTool = 'W';
+let editBrush = 'W';
 const editorTiles = [
   { key: 'W', label: '墙', color: '#5a5a7a' },
   { key: '.', label: '空', color: '#2a2a40' },

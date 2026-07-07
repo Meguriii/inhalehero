@@ -129,17 +129,16 @@ class Door extends Entity {
     drawDoor(ctx, x, y, ts, this.color, this.active);
   }
   onDestroy(world) {
-    // 门关闭时夹碎上面的东西
-    const occupant = world.getEntity(this.r, this.c);
-    if (occupant && occupant !== this) {
-      if (occupant instanceof Box) {
-        world.setEntity(this.r, this.c, this);
-        occupant.onDestroy(world);
-      } else if (occupant instanceof Character && occupant.controllable) {
-        world.gameOver = true;
-        document.getElementById('deathReason').textContent = '⚠ 能量门夹死了角色！';
-        document.getElementById('deathOverlay').classList.add('show');
-      }
+    // 门格上的实体已由 World.updateDoorStates() 统一处理夹死逻辑
+    // 此处只产生粒子效果
+    const ts = world.tileSize;
+    const cx = this.c * ts + ts / 2, cy = this.r * ts + ts / 2;
+    const colors = ['#9B59B6', '#AF7AC5', '#F1C40F', '#F9E79F'];
+    for (let i = 0; i < 10; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 0.5 + Math.random() * 2;
+      world.spawnParticle(cx, cy, Math.cos(angle) * speed, Math.sin(angle) * speed - 1,
+        colors[Math.floor(Math.random() * colors.length)], 10, 20, 2 + Math.random() * 3);
     }
   }
   toChar() { return this.color === 0 ? 'P' : 'Y'; }
@@ -162,17 +161,16 @@ class MonsterGate extends Entity {
   }
   canBePushed() { return false; }
   onDestroy(world) {
-    // 门关闭时夹碎上面的东西
-    const occupant = world.getEntity(this.r, this.c);
-    if (occupant && occupant !== this) {
-      if (occupant instanceof Box) {
-        world.setEntity(this.r, this.c, this);
-        occupant.onDestroy(world);
-      } else if (occupant instanceof Character && occupant.controllable) {
-        world.gameOver = true;
-        document.getElementById('deathReason').textContent = '⚠ 怪物门夹死了角色！';
-        document.getElementById('deathOverlay').classList.add('show');
-      }
+    // 门格上的实体已由 World.updateMonsterGates() 统一处理夹死逻辑
+    // 此处只产生粒子效果
+    const ts = world.tileSize;
+    const cx = this.c * ts + ts / 2, cy = this.r * ts + ts / 2;
+    const colors = ['#E91E63', '#F06292', '#FF4081', '#C2185B'];
+    for (let i = 0; i < 10; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 0.5 + Math.random() * 2;
+      world.spawnParticle(cx, cy, Math.cos(angle) * speed, Math.sin(angle) * speed - 1,
+        colors[Math.floor(Math.random() * colors.length)], 10, 20, 2 + Math.random() * 3);
     }
   }
   toChar() { return 'M'; }
@@ -253,7 +251,10 @@ class FireDragon extends Monster {
   render(ctx, x, y, ts) {
     drawDragon(ctx, x, y, ts, this.dir);
   }
-  toChar() { return 'F'; }
+  toChar() {
+    const dirChars = ['F', 'R', 'D', 'L'];
+    return dirChars[this.dir] || 'F';
+  }
 
   onStepOn(world, byEntity) {
     // 角色被推入火龙 → 角色死亡

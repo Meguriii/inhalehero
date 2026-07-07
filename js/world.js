@@ -227,7 +227,6 @@ class World {
         if (occupant) {
           if (occupant instanceof Character && occupant.controllable) {
             this.setEntity(door.r, door.c, null);
-            this.gameOver = true;
             this.killCharacter(occupant, '⚠ 能量门夹死了角色！');
           } else {
             this.destroyEntity(occupant);  // 完整销毁（移除数组 + 粒子）
@@ -250,10 +249,9 @@ class World {
         if (occupant) {
           this.setEntity(gate.r, gate.c, null);
           if (occupant instanceof Character && occupant.controllable) {
-            this.gameOver = true;
             this.killCharacter(occupant, '⚠ 怪物门夹死了角色！');
           } else {
-            occupant.onDestroy(this);
+            this.destroyEntity(occupant);
           }
         }
       }
@@ -420,7 +418,7 @@ class World {
       }
     }
 
-    // ---- Phase 5: 过滤受牧师保护的实体 ----
+    // ---- Phase 4: 过滤受牧师保护的实体 ----
     const filteredDestroy = [];
     for (const entity of toDestroy) {
       // 检查是否受圣光保护（仅限角色）
@@ -430,7 +428,7 @@ class World {
       filteredDestroy.push(entity);
     }
 
-    // ---- Phase 5: 统一处决 ----
+    // ---- Phase 5: 统一处决 ----  (译者注：上一步完成过滤，此步执行处决)
     for (const entity of filteredDestroy) {
       if (entity instanceof Character && entity.controllable) {
         this.killCharacter(entity, '⚠ 被怪物攻击了！');
