@@ -170,50 +170,91 @@ export function parseMapToWorld(raw, overlays) {
 }
 
 /**
- * 从 World 实例导出字符地图
- * @param {World} w
- * @returns {string[]}
+ * 获取一个格子对应的地图字符（仅地面元素，不包括角色/怪物/箱子等可移动实体）
+ * @param {import('./world.js').World} w
+ * @param {number} r
+ * @param {number} c
+ * @returns {string|null} 字符，如果没有特殊地面元素返回 null
+ */
+function getFloorChar(w, r, c) {
+  if (w.targets.some(t => t.r === r && t.c === c)) return 'T';
+  if (w.switches.some(s => s.r === r && s.c === c)) {
+    const sw = w.switches.find(s => s.r === r && s.c === c);
+    return sw.color === 0 ? 'p' : 'y';
+  }
+  if (w.doors.some(d => d.r === r && d.c === c)) {
+    const dr = w.doors.find(d => d.r === r && d.c === c);
+    return dr.color === 0 ? 'P' : 'Y';
+  }
+  if (w.monsterGates.some(g => g.r === r && g.c === c)) return 'M';
+  return null;
+}
+
+/**
+ * 获取可移动实体的地图字符
+ * @param {import('./world.js').World} w
+ * @param {number} r
+ * @param {number} c
+ * @returns {string|null}
+ */
+function getEntityChar(entity) {
+  if (!entity) return null;
+  if (entity instanceof Wall) return 'W';
+  if (entity instanceof Box) return 'X';
+  if (entity instanceof Water) return '~';
+  if (entity instanceof Goblin) return 'G';
+  if (entity instanceof FireDragon) {
+    const dirs = ['F', 'R', 'D', 'L'];
+    return dirs[entity.dir] || 'F';
+  }
+  if (entity instanceof Warrior) return '0';
+  if (entity instanceof Thief) return '1';
+  if (entity instanceof Mage) return '2';
+  if (entity instanceof Priest) return '3';
+  return null;
+}
+
+/**
+ * 从 World 实例导出字符地图 + overlays
+ * 正确保留地面元素（Target/Switch）与站在上面的可移动实体
+ * @param {import('./world.js').World} w
+ * @returns {{map: string[], overlays: Array<{char: string, r: number, c: number}>}}
  */
 export function exportMapFromWorld(w) {
   const rows = w.rows;
   const cols = w.cols;
   const map = [];
+  const overlays = [];
   for (let r = 0; r < rows; r++) {
     let row = '';
     for (let c = 0; c < cols; c++) {
       const entity = w.grid[r][c];
-      let ch = '.';
-      if (entity) {
-        if (entity instanceof Wall) ch = 'W';
-        else if (entity instanceof Box) ch = 'X';
-        else if (entity instanceof Water) ch = '~';
-        else if (entity instanceof Goblin) ch = 'G';
-        else if (entity instanceof FireDragon) {
-          const dirs = ['F', 'R', 'D', 'L'];
-          ch = dirs[entity.dir] || 'F';
-        }
-        else if (entity instanceof Warrior) ch = '0';
-        else if (entity instanceof Thief) ch = '1';
-        else if (entity instanceof Mage) ch = '2';
-        else if (entity instanceof Priest) ch = '3';
+      const floorChar = getFloorChar(w, r, c);
+      const entityChar = getEntityChar(entity);
+
+      // 静态实体（墙、水）直接写
+      if (entity instanceof Wall || entity instanceof Water) {
+        row += entityChar;
+        continue;
       }
-      if (ch === '.') {
-        if (w.targets.some(t => t.r === r && t.c === c)) ch = 'T';
-        else if (w.switches.some(s => s.r === r && s.c === c)) {
-          const sw = w.switches.find(s => s.r === r && s.c === c);
-          ch = sw.color === 0 ? 'p' : 'y';
+
+      if (entityChar) {
+        // 可移动实体（角色/怪物/箱子）站在格子表面
+        // 如果下面还有地面元素（Target/Switch/门），把地面元素写入地图，实体放到 overlays
+        if (floorChar) {
+          row += floorChar;
+          overlays.push({ char: entityChar, r, c });
+        } else {
+          row += entityChar;
         }
-        else if (w.doors.some(d => d.r === r && d.c === c)) {
-          const dr = w.doors.find(d => d.r === r && d.c === c);
-          ch = dr.color === 0 ? 'P' : 'Y';
-        }
-        else if (w.monsterGates.some(g => g.r === r && g.c === c)) ch = 'M';
+      } else {
+        // 格子上没有可移动实体，直接写地面元素或 '.'
+        row += floorChar || '.';
       }
-      row += ch;
     }
     map.push(row);
   }
-  return map;
+  return { map, overlays };
 }
 
 /**

@@ -75,6 +75,7 @@
             <button class="char-btn priest" data-char="3"><span class="ci">✝</span>牧师</button>
           </div>
           <div style="flex:1;min-height:8px"></div>
+          <button class="btn" id="undoBtn">E 回溯</button>
           <button class="btn" id="switchBtn">Q 切换角色</button>
           <button class="btn" id="restartBtn">R 重置关卡</button>
         </div>
@@ -82,7 +83,7 @@
     </div>
 
     <!-- 底部工具栏（居中） -->
-    <div class="bottom-nav">
+    <div class="bottom-nav" id="bottomNav">
       <button class="btn" id="levelSelectBtn">Z 关卡选择</button>
       <button class="btn" id="editToolBtn">C 关卡编辑器</button>
     </div>
@@ -90,31 +91,41 @@
     <!-- 编辑器工具栏 -->
     <div id="editorToolbar" style="display:none">
       <div class="edit-tools">
-        <span class="tool-label">笔刷:</span>
+        <span class="tool-label">地形</span>
         <button class="tile-btn active" id="brushFloor">· 地板</button>
         <button class="tile-btn" id="brushWall">🧱 墙</button>
         <button class="tile-btn" id="brushBox">📦 箱子</button>
         <button class="tile-btn" id="brushTarget">🎯 目标</button>
         <button class="tile-btn" id="brushWater">🌊 水面</button>
+      </div>
+      <div class="edit-tools">
+        <span class="tool-label">机关</span>
         <button class="tile-btn" id="brushDoorP">🟣 紫门</button>
         <button class="tile-btn" id="brushDoorY">🟡 黄门</button>
         <button class="tile-btn" id="brushSwitchP">⚪ 紫开关</button>
         <button class="tile-btn" id="brushSwitchY">⚪ 黄开关</button>
+        <button class="tile-btn" id="brushMonsterGate">🚧 怪物门</button>
+      </div>
+      <div class="edit-tools">
+        <span class="tool-label">角色</span>
         <button class="tile-btn" id="brushWarr">⚔ 战士</button>
         <button class="tile-btn" id="brushThief">🗝 盗贼</button>
         <button class="tile-btn" id="brushMage">✦ 法师</button>
         <button class="tile-btn" id="brushPriest">✝ 牧师</button>
+      </div>
+      <div class="edit-tools">
+        <span class="tool-label">敌人</span>
         <button class="tile-btn" id="brushGoblin">👺 哥布林</button>
-        <button class="tile-btn" id="brushDragonU">↑ 火龙</button>
-        <button class="tile-btn" id="brushDragonR">→ 火龙</button>
-        <button class="tile-btn" id="brushDragonD">↓ 火龙</button>
-        <button class="tile-btn" id="brushDragonL">← 火龙</button>
-        <button class="tile-btn" id="brushMonsterGate">🚧 怪物门</button>
+        <button class="tile-btn" id="brushDragonU">↑ 火龙(上)</button>
+        <button class="tile-btn" id="brushDragonR">→ 火龙(右)</button>
+        <button class="tile-btn" id="brushDragonD">↓ 火龙(下)</button>
+        <button class="tile-btn" id="brushDragonL">← 火龙(左)</button>
       </div>
       <div class="edit-actions">
         <button class="btn" id="editDrawBtn">✏ 绘制</button>
         <button class="btn" id="editFillBtn">🪣 填充</button>
         <button class="btn" id="editResizeBtn">📐 调整尺寸</button>
+        <button class="btn" id="editTestBtn">▶ 测试</button>
         <button class="btn btn-save" id="editSaveBtn">💾 保存</button>
         <button class="btn" id="editCancelBtn">↩ 退出</button>
       </div>

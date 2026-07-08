@@ -12,12 +12,6 @@ import {
   drawFloor, drawHolyLight, drawSwitchOverlay,
 } from './renderer.js';
 
-// 供外部引用的画布上下文
-let gctx = null;
-
-export function setGlobalCtx(ctx) {
-  gctx = ctx;
-}
 
 // ============================================================
 //  World 类
@@ -461,65 +455,65 @@ class World {
   }
 
   // ---- 渲染 ----
-  render() {
-    if (!gctx) return;
-    gctx.fillStyle = C.black;
-    gctx.fillRect(0, 0, (this.cols * this.tileSize), (this.rows * this.tileSize));
+  render(ctx) {
+    if (!ctx) return;
+    ctx.fillStyle = C.black;
+    ctx.fillRect(0, 0, (this.cols * this.tileSize), (this.rows * this.tileSize));
     const ts = this.tileSize;
     const holyTiles = this.threatenedTiles || new Set();
 
     for (let r = 0; r < this.rows; r++) {
       for (let c = 0; c < this.cols; c++) {
-        drawFloor(gctx, c * ts, r * ts, ts);
+        drawFloor(ctx, c * ts, r * ts, ts);
         if (holyTiles.has(r + ',' + c)) {
-          drawHolyLight(gctx, c * ts, r * ts, ts, 1.0);
+          drawHolyLight(ctx, c * ts, r * ts, ts, 1.0);
         }
         if (this.targets.some(t => t.r === r && t.c === c)) {
           const t = this.targets.find(t => t.r === r && t.c === c);
-          t.render(gctx, c * ts, r * ts, ts);
+          t.render(ctx, c * ts, r * ts, ts);
         }
         if (this.switches.some(s => s.r === r && s.c === c)) {
           const sw = this.switches.find(s => s.r === r && s.c === c);
-          sw.render(gctx, c * ts, r * ts, ts);
+          sw.render(ctx, c * ts, r * ts, ts);
         }
         if (this.doors.some(d => d.r === r && d.c === c)) {
           const door = this.doors.find(d => d.r === r && d.c === c);
-          door.render(gctx, c * ts, r * ts, ts);
+          door.render(ctx, c * ts, r * ts, ts);
         }
         if (this.monsterGates.some(g => g.r === r && g.c === c)) {
           const gate = this.monsterGates.find(g => g.r === r && g.c === c);
-          gate.render(gctx, c * ts, r * ts, ts);
+          gate.render(ctx, c * ts, r * ts, ts);
         }
         const entity = this.getEntity(r, c);
         if (entity) {
-          entity.render(gctx, c * ts, r * ts, ts);
+          entity.render(ctx, c * ts, r * ts, ts);
         }
         if (this.switches.some(s => s.r === r && s.c === c)) {
           const sw = this.switches.find(s => s.r === r && s.c === c);
-          drawSwitchOverlay(gctx, c * ts, r * ts, ts, sw.color, sw.pressed);
+          drawSwitchOverlay(ctx, c * ts, r * ts, ts, sw.color, sw.pressed);
         }
       }
     }
     for (let i = 0; i < this.characters.length; i++) {
       const ch = this.characters[i];
-      ch.render(gctx, ch.c * ts, ch.r * ts, ts, i !== this.activeCharIdx);
+      ch.render(ctx, ch.c * ts, ch.r * ts, ts, i !== this.activeCharIdx);
       if (i === this.activeCharIdx) {
-        gctx.fillStyle = 'rgba(255,215,0,0.35)';
-        gctx.fillRect(ch.c * ts, ch.r * ts + ts - 4, ts, 4);
+        ctx.fillStyle = 'rgba(255,215,0,0.35)';
+        ctx.fillRect(ch.c * ts, ch.r * ts + ts - 4, ts, 4);
       }
     }
   }
 
-  renderParticles() {
-    if (!gctx) return;
-    gctx.save();
+  renderParticles(ctx) {
+    if (!ctx) return;
+    ctx.save();
     for (const p of this.particles) {
       const a = p.life / p.maxLife;
-      gctx.globalAlpha = a;
-      gctx.fillStyle = p.color;
-      gctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+      ctx.globalAlpha = a;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
     }
-    gctx.restore();
+    ctx.restore();
   }
 
   updateParticles() {

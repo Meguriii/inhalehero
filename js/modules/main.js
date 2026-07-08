@@ -3,20 +3,19 @@
 // ============================================================
 import { initCanvas, getGameCanvas } from './canvas.js';
 import { initRenderer } from './renderer.js';
-import { loadLevels, setCurrentLevelIdx } from './gameState.js';
+import { loadLevels, levels } from './gameState.js';
 import { loadLevel, updateFrame, setWorld, render } from './gameController.js';
-import { initUI, setupCharacterButtons, setupSwitchButton, setupRestartButtons, setupNextLevelButton, setupLevelSelect } from './ui.js';
+import { initUI, setupCharacterButtons, setupUndoButton, setupSwitchButton, setupRestartButtons, setupNextLevelButton, setupLevelSelect } from './ui.js';
 import { setupEditorButtons } from './editor.js';
 import { setupKeyboard, setupCanvasInput } from './input.js';
-import { setGlobalCtx } from './world.js';
-import { parseMapToWorld, setGridSizes as calcGridSizes } from './levelLoader.js';
 
-// ---- 初始化游戏 ----
+/**
+ * 初始化游戏引擎并启动动画循环
+ */
 async function initGame() {
   // 1. 初始化 Canvas
   initCanvas();
   const { ctx } = getGameCanvas();
-  setGlobalCtx(ctx);
 
   // 2. 初始化渲染器
   initRenderer(ctx);
@@ -27,6 +26,7 @@ async function initGame() {
   // 4. 初始化 UI
   initUI();
   setupCharacterButtons();
+  setupUndoButton();
   setupSwitchButton();
   setupRestartButtons();
   setupNextLevelButton();
@@ -40,13 +40,16 @@ async function initGame() {
   setupCanvasInput();
 
   // 7. 加载初始关卡
-  const allLevels = (await import('./gameState.js')).levels;
-  if (allLevels && allLevels.length > 0) {
+  if (levels && levels.length > 0) {
     loadLevel(0);
   }
 
   // 8. 启动动画循环
   let lastTime = performance.now();
+  /**
+   * 游戏主循环
+   * @param {DOMHighResTimeStamp} time
+   */
   function gameLoop(time) {
     const delta = time - lastTime;
     if (delta >= 100) {

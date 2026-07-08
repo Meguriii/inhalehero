@@ -1,13 +1,14 @@
-// ============================================================
+ // ============================================================
 // 输入模块 — 键盘 / 鼠标 / 触控 事件处理
 // ============================================================
-import { movePlayer, restartLevel, loadLevel } from './gameController.js';
+import { movePlayer, restartLevel, loadLevel, undo } from './gameController.js';
 import { currentLevelIdx, levels } from './gameState.js';
 import { getGameCanvas } from './canvas.js';
-import { isEditing, editCell } from './editor.js';
+import { isEditing, editCell, getEditTileSize, isTestMode, returnToEditor } from './editor.js';
 import { dismissOverlays, renderLevelGrid, showScreen } from './ui.js';
 
 // ---- 键盘映射 ----
+/** @type {Object<string, [number, number]>} */
 const KEY_MAP = {
   'ArrowUp': [-1, 0],
   'ArrowDown': [1, 0],
@@ -94,10 +95,20 @@ export function setupKeyboard() {
       showScreen('selectScreen');
     }
 
-    // C 进入编辑器
+    // E 撤销上一步
+    if (key === 'e' && !ctrl) {
+      e.preventDefault();
+      undo();
+    }
+
+    // C 进入编辑器 / 测试模式返回
     if (key === 'c' && !ctrl) {
       e.preventDefault();
-      document.getElementById('editToolBtn').click();
+      if (isTestMode()) {
+        returnToEditor();
+      } else {
+        document.getElementById('editToolBtn').click();
+      }
     }
   });
 }
@@ -109,11 +120,18 @@ export function setupCanvasInput() {
   const { canvas } = getGameCanvas();
   let drawing = false;
 
+  /**
+   * 根据鼠标坐标计算所在格子位置
+   * @param {number} clientX
+   * @param {number} clientY
+   * @returns {{row: number, col: number}}
+   */
   const getTilePos = (clientX, clientY) => {
     const rect = canvas.getBoundingClientRect();
     const x = clientX - rect.left;
     const y = clientY - rect.top;
-    const ts = 48; // 粗略值，编辑器中会重新计算
+    // 使用编辑器实际的 tile size，游戏模式下 fallback 到 48（不会触发编辑）
+    const ts = getEditTileSize() || 48;
     return {
       row: Math.floor(y / ts),
       col: Math.floor(x / ts),

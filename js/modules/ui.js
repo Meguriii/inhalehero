@@ -189,6 +189,13 @@ export function setupCharacterButtons() {
   });
 }
 
+// ---- 回溯按钮 ----
+export function setupUndoButton() {
+  document.getElementById('undoBtn').addEventListener('click', () => {
+    import('./gameController.js').then(m => m.undo());
+  });
+}
+
 // ---- 切换角色 ----
 export function setupSwitchButton() {
   document.getElementById('switchBtn').addEventListener('click', () => {

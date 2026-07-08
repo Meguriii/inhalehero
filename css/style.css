@@ -61,10 +61,10 @@ kbd{background:rgba(255,255,255,0.06);border:1px solid var(--border2);border-rad
 #editorCanvas{max-width:100%;max-height:60vh}
 .edit-tools{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center}
 .edit-tools .tool-label{font-size:10px;color:var(--dimmer);margin-right:4px}
-.tile-btn{padding:2px 6px;border:2px solid var(--border2);border-radius:4px;background:rgba(255,255,255,0.03);cursor:pointer;transition:all 0.1s;width:auto;min-width:30px;height:28px;display:inline-flex;align-items:center;justify-content:center;gap:2px;font-size:11px;white-space:nowrap}
+.tile-btn{padding:2px 6px;border:2px solid var(--border2);border-radius:4px;background:rgba(255,255,255,0.03);cursor:pointer;transition:all 0.1s;width:auto;min-width:30px;height:28px;display:inline-flex;align-items:center;justify-content:center;gap:2px;font-size:11px;white-space:nowrap;color:var(--text);font-family:'SimHei','Microsoft YaHei','PingFang SC','Noto Sans SC','Press Start 2P',monospace}
 .tile-btn kbd{font-size:8px;padding:1px 3px}
-.tile-btn.active{border-color:var(--gold);background:rgba(255,215,0,0.12)}
-.tile-btn:hover{background:rgba(255,255,255,0.06)}
+.tile-btn.active{border-color:var(--gold);background:rgba(255,215,0,0.12);color:var(--gold)}
+.tile-btn:hover{background:rgba(255,255,255,0.06);color:#ccccee}
 .tile-btn.tb-door-purple{color:#9B59B6}.tile-btn.tb-door-yellow{color:#F1C40F}
 .tile-btn.tb-switch-purple{color:#9B59B6;opacity:0.7}.tile-btn.tb-switch-yellow{color:#F1C40F;opacity:0.7}
 .edit-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;margin-bottom:12px}
